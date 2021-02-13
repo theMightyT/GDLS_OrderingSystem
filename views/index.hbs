@@ -1,4 +1,6 @@
 <section class="management-system-wrapper">
     <h1 class="hidden">GDLS-C Parts Ordering System</h1>
-    <h2 class="main-head">GDLS-C Parts Management System</h2>
+    <h2 @click=" testlogClick" class="main-head">GDLS-C Parts Management System</h2>
+
+    <part v-for="part in store" :part="part"></part>
 </section>
