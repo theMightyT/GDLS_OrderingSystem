@@ -5,14 +5,11 @@ const fs = require('fs');
 
 let store = [];
 
-router.get("/", (req, res) => {
-    console.log('hit the main route');
-    testFunc();
+// router.get("/", (req, res) => {
+//     res.render("index");
+// })
 
-    res.render("index", {message: "hello from handlebars"});
-})
-
-router.get("/csv", (req, res, next) => {
+router.get("/", (req, res, next) => {
     res.locals.parts = [];
 
     fs.createReadStream('./assets/test.csv')
@@ -28,7 +25,7 @@ router.get("/csv", (req, res, next) => {
           
 }, (req, res) => {
     console.log("hit the next part of the route");
-    res.json(res.locals.parts);
+    res.render("index", { data: res.locals.parts});
 })
 
 module.exports = router;

@@ -21,13 +21,13 @@ import TestComponent from './components/TestComponent.js';
         created: function() {
             console.log('works!');
             // go get the datastore
-            fetch("/csv")
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    this.$set(this.datastore, 'parts', data);
-                })
-            .catch(err => console.error(err));
+            // fetch("/csv")
+            //     .then(res => res.json())
+            //     .then(data => {
+            //         console.log(data);
+            //         this.$set(this.datastore, 'parts', data);
+            //     })
+            // .catch(err => console.error(err));
         },
 
         components: {
