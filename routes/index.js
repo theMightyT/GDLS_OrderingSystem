@@ -1,9 +1,44 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 const parser = require('csv-parser');
+const writer = require('csv-writer').createObjectCsvWriter;
 const fs = require('fs');
 
+// test for homedir
+const os = require('os');
+
 let store = [];
+
+const csvWriter = writer({
+    path: path.join(os.homedir(), "/Documents/reorder.csv"),
+
+    header: [
+        {id: 'name', title: 'Name'},
+        {id: 'surname', title: 'Surname'},
+        {id: 'age', title: 'Age'}
+    ]
+});
+
+const data = [
+    {
+        name: "Trevor",
+        surname: "VR",
+        age: 49
+    },
+    {
+        name: "Madelaine",
+        surname: "VR",
+        age: 14
+    },
+    {
+        name: "Serena",
+        surname: "VR",
+        age: 10
+    }
+];
+
+csvWriter.writeRecords(data).then(() => console.log('wrote file to Documents'));
 
 // router.get("/", (req, res) => {
 //     res.render("index");
