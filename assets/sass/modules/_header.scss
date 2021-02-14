@@ -1,0 +1,24 @@
+header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1 fr;
+
+    background-color: #626f7b;
+    padding: 1em;
+
+    border-bottom: 2px solid #333;
+
+    img { 
+        max-width: 100%;
+        padding-top: 4px;
+    }
+
+    #main-nav { 
+        margin-left: auto;
+        font-size: 1.35em;
+
+        ul {
+            li { display: inline-block; padding: 0 0.25em; }
+        }
+    }
+}
