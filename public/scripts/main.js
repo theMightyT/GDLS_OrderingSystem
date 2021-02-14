@@ -9,7 +9,7 @@ import TestComponent from './components/TestComponent.js';
             message: "hello from Vue!",
 
             // store will hold our data object (CSV file contents) when we load and retrieve via fetch
-            store: []
+            datastore: {},
         },
 
         methods: {
@@ -25,7 +25,7 @@ import TestComponent from './components/TestComponent.js';
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    this.store = data;
+                    this.$set(this.datastore, 'parts', data);
                 })
             .catch(err => console.error(err));
         },

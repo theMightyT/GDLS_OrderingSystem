@@ -5,7 +5,7 @@ export default {
 
     template: `
     <section class="main-part">
-        <span>{{part.Name}}</span><span>{{part.Surname}}</span><span>{{part.Age}}</span>
+        <span>{{part.Name}}</span>&nbsp;<span>{{part.Surname}}</span>&nbsp;<span>{{part.Age}}</span>
     </section>
     `,
 
