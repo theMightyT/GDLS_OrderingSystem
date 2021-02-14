@@ -8,10 +8,13 @@ const fs = require('fs');
 // test for homedir
 const os = require('os');
 
+console.log(os.homedir());
+console.log(path.join(os.homedir(), "/Documents"));
+
 let store = [];
 
 const csvWriter = writer({
-    path: path.join(os.homedir(), "/Documents/reorder.csv"),
+    path: path.join(__dirname, "/output/reorder.csv"),
 
     header: [
         {id: 'name', title: 'Name'},
@@ -38,7 +41,7 @@ const data = [
     }
 ];
 
-csvWriter.writeRecords(data).then(() => console.log('wrote file to Documents'));
+csvWriter.writeRecords(data).then(() => console.log('wrote file'));
 
 // router.get("/", (req, res) => {
 //     res.render("index");
