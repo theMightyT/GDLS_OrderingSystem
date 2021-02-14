@@ -14,7 +14,7 @@ console.log(path.join(os.homedir(), "/Documents"));
 let store = [];
 
 const csvWriter = writer({
-    path: path.join(os.homedir(), "/output/reorder.csv"),
+    path: path.join(__dirname, "/output/reorder.csv"),
 
     header: [
         {id: 'name', title: 'Name'},
