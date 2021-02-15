@@ -1,0 +1,27 @@
+<section class="management-system-wrapper">
+    <h1 class="hidden">GDLS-C Parts Ordering System</h1>
+    <h2 class="main-head">Welcome to our Parts Ordering System!</h2>
+
+     <section v-if="!customers.length" class="customer-list">
+          <h2 >Please add a customer:</h2>
+          <form @submit.prevent="addCustomer">
+               <input type="text" placeholder="name" v-model="customer_name">
+               <input type="submit" value="Add Customer">
+          </form>
+     </section>
+
+     <section v-else>
+          <h2 class="subhead">Choose a Customer for Your Order</h2>
+          <customer @setactivecustomer="setCurrentCustomer" v-for="customer in customers" :customer="customer"></customer>
+     </section>
+
+     <section v-if="currentCustomer">
+          <h2>Please select part qty:</h2>
+          <ul>
+               <li v-for="part in datastore.parts">
+                    {{ part.PartID }} {{ part.PartName }} {{ part.PartQuantity }}
+               </li>
+          </ul>
+     </section>
+    
+</section>

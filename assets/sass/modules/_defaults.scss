@@ -14,4 +14,15 @@ body {
 
 main { padding: 1em;  flex: 1 0 auto; }
 
-.main-head { font-size: 1.5em; font-weight: 800; padding-top: 0.5em; width: 85%; line-height: 1.25; }
+.main-head, .subhead { 
+    font-size: 1.5em; 
+    font-weight: 800; 
+    padding-top: 0.5em; 
+    width: 85%; 
+    line-height: 1.25; 
+}
+
+.subhead {
+    font-size: 1.25rem;
+    margin-top: 1em;
+}
