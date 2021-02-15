@@ -4,9 +4,9 @@ export default {
     props: ['part'],
 
     template: `
-    <section class="main-part">
-        <span>{{part.Name}}</span>&nbsp;<span>{{part.Surname}}</span>&nbsp;<span>{{part.Age}}</span>
-    </section>
+    <li class="main-part">
+        <span>Part ID:</span> {{part.PartID}} <span>Part Name:</span> {{part.PartName}}  <span>Qty Available:</span> {{part.PartQuantity}} <div class="order-qty"><span>Add Qty:</span> <input type="number"></div>
+    </li>
     `,
 
     created: function() {
