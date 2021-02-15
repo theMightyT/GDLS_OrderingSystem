@@ -10,18 +10,19 @@
           </form>
      </section>
 
-     <section v-else>
-          <h2 class="subhead">Choose a Customer for Your Order</h2>
+     <section v-else class="customer-list">
+          <h2 class="subhead">Choose a Customer for Your Order:</h2>
           <customer @setactivecustomer="setCurrentCustomer" v-for="customer in customers" :customer="customer"></customer>
+          <hr class="customer-list-hr">
      </section>
 
-     <section v-if="currentCustomer">
-          <h2>Please select part qty:</h2>
-          <ul>
-               <li v-for="part in datastore.parts">
-                    {{ part.PartID }} {{ part.PartName }} {{ part.PartQuantity }}
-               </li>
+     <section v-if="datastore.parts" class="parts-form">
+          <h2 class="subhead order-subhead">Please Select Parts and Qty:</h2>
+
+          <ul>               
+               <part v-for="part in datastore.parts" :part="part"></part>
           </ul>
-     </section>
-    
+
+          <div class="order-button">Create Order</div>
+     </section>    
 </section>

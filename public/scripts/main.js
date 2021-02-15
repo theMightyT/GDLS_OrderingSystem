@@ -17,29 +17,27 @@ import CustomerComponent from './components/TheCustomerComponent.js';
         },
 
         methods: {
-            testlogClick() {
-                debugger;
-            },
-
             getPartsInventory() {
                 const url = "/getParts";
 
                 fetch(url)
                 .then(res => res.json())
-                .then(data => this.$set(this.datastore.parts, data)
+                .then(data => this.$set(this.datastore, 'parts', data))
+                .catch((err) => console.error(err));
             },
 
             setCurrentCustomer(customerNo) {
-                debugger;
-                this.current_customer = customerNo;            
+                this.current_customer = customerNo;
+                
+                this.getPartsInventory();
             },
 
             addCustomer() {
                 let newCustomer = new FormData();
 
                 newCustomer.append("name", this.customer_name);
-                newCustomer.append("customerID", this.generateSlug());
-                debugger;
+                //newCustomer.append("customerID", this.generateSlug());
+
                 const url = "/addCustomer";
 
                 fetch(url, {
@@ -58,7 +56,6 @@ import CustomerComponent from './components/TheCustomerComponent.js';
         },
 
         created: function() {
-            console.log('works!');
             fetch("/getCustomers")
                 .then(res => res.json())
                 .then(data => {

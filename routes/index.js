@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 const bodyParser = require('body-parser');
 
 // CSV stuff
@@ -15,11 +16,10 @@ const connect = require('../config/sqlConfig.js');
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 
-// test for homedir
-// const os = require('os');
+// this block is testing reading and writing of the CSV file
+// it successfully generates a .csv and it's available for download, or stores it in a local file
 
-let store = [];
-
+// this entire app could be wrapped in Electron, and then run as a desktop app at which point the .csv file can be saved anywhere with the os package
 const csvWriter = writer({
     path: path.join(__dirname, "../output/reorder.csv"),
 
@@ -55,6 +55,8 @@ router.get("/", (req, res) => {
 })
 
 router.get("/getParts", (req, res) => {
+    console.log('at get parts route');
+
     connect.getConnection((err, connection) => {
         if (err) { throw err.message }
 
@@ -86,12 +88,10 @@ router.get("/getcustomers", (req, res) => {
 
 router.post("/addCustomer", (req, res) => {
     
-    // do a sql push here
+    // do a sql push here, write query and add name
 })
 
-// router.get("/", (req, res) => {
-//     res.render("index");
-// })
+// this route originally worked with just the .csv file -> read the stream, parsed the data and sent back the parts
 
 // router.get("/", (req, res, next) => {
 //     res.locals.parts = [];
