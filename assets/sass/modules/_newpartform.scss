@@ -1,0 +1,17 @@
+#new-part-form {
+    h2 { font-weight: 700; margin: 1em 0; font-size: 1.5rem; }
+
+    input:not(input[type=number]) {
+        display: block;
+        padding: 0.5em 1em;
+        font-size: 1em;
+        width: 300px;
+        text-align: center;
+    }
+
+    label { display: inline-block; margin: 1em 0.5em 0.5em 0; }
+    input[type=number] { padding: 0.5rem; width: 75px;}
+
+    input[type=submit] { margin-top: 1rem; }
+}
+

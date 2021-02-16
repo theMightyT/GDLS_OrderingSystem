@@ -11,18 +11,26 @@
      </section>
 
      <section v-else class="customer-list">
-          <h2 class="subhead">Choose a Customer for Your Order:</h2>
+          <h2 class="subhead cust-subhead">Choose a Customer for Your Order:</h2>
           <customer @setactivecustomer="setCurrentCustomer" v-for="customer in customers" :customer="customer"></customer>
           <hr class="customer-list-hr">
      </section>
 
      <section v-if="datastore.parts" class="parts-form">
           <h2 class="subhead order-subhead">Please Select Parts and Qty:</h2>
+          <span class="add-part" @click="toggleNewPart">Add New Part</span>
 
-          <ul>               
+          <ul class="parts-form">               
                <part v-for="part in datastore.parts" :part="part"></part>
           </ul>
 
+          <hr class="customer-list-hr">
+
           <div class="order-button">Create Order</div>
-     </section>    
+     </section>
+
+     {{!-- <section id="parts-form" :class="{ 'show-form' : show_new_part }">
+          <partform></partform>
+     </section> --}}
+     
 </section>

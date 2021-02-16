@@ -2,6 +2,7 @@
 import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js';
 import PartsComponent from './components/TheGenericPart.js';
 import CustomerComponent from './components/TheCustomerComponent.js';
+import PartForm from './components/TheAddPartForm.js';
 
 (() => {
     let vm = new Vue({
@@ -11,6 +12,7 @@ import CustomerComponent from './components/TheCustomerComponent.js';
             customer_name: "",
             customer_number: "",
             current_customer: undefined,
+            show_new_part: false,
 
             // store will hold our data object (CSV file contents) when we load and retrieve via fetch
             datastore: {},
@@ -24,6 +26,12 @@ import CustomerComponent from './components/TheCustomerComponent.js';
                 .then(res => res.json())
                 .then(data => this.$set(this.datastore, 'parts', data))
                 .catch((err) => console.error(err));
+            },
+
+            toggleNewPart() {
+                // show / hide new part form
+                this.show_new_part = this.show_new_part ? false : true;
+
             },
 
             setCurrentCustomer(customerNo) {
@@ -67,7 +75,8 @@ import CustomerComponent from './components/TheCustomerComponent.js';
 
         components: {
             part: PartsComponent,
-            customer: CustomerComponent
+            customer: CustomerComponent,
+            partform: PartForm
         }
     }).$mount("#app");
 })()
