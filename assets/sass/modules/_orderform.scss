@@ -1,4 +1,14 @@
-.order-subhead { margin-bottom: 1rem; }
+.order-subhead { margin-bottom: 1rem; display: inline-block; }
+
+.add-part { 
+    position: absolute;
+    float: right;
+    padding: 1rem;
+    background-color: green;
+    border-radius: 8px;
+    margin-right: 2rem;
+    cursor: pointer; 
+}
 
 .main-part {
     font-size: 1.2em;
@@ -6,6 +16,10 @@
 
     span { font-weight: 700; margin-right: 0.25em; margin-left: 1.5em; }
 
-    .order-qty { float: right; }
+    .order-qty { float: right; margin-right: 2em; }
+
+    input[type=number] { width: 35px; padding: 0.2em; }
 
 }
+
+.parts-form { margin-bottom: 1.5rem; }

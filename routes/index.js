@@ -91,6 +91,10 @@ router.post("/addCustomer", (req, res) => {
     // do a sql push here, write query and add name
 })
 
+router.post("/addPart", (req, res) => {
+    res.json({message: "add part here"});
+})
+
 // this route originally worked with just the .csv file -> read the stream, parsed the data and sent back the parts
 
 // router.get("/", (req, res, next) => {
